@@ -1,4 +1,8 @@
 
+//  list.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName()))
+//        .filter(person -> person.getAge() >= 30)
+//        .forEach(person -> System.out.println(person.toString()));
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class opinionPoll2 {
         list.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName()))
                 .filter(person -> person.getAge() >= 30)
                 .forEach(person -> System.out.println(person.toString()));
+
     }
     static class Person{
         String name;
