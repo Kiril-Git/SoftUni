@@ -1,3 +1,14 @@
+//  for (Map.Entry<String, ArrayList<String>> entry : mapList.entrySet()) {
+//        String k = entry.getKey();
+//        ArrayList<String> v = entry.getValue();
+//        if (v.contains(user2)){
+//        v.remove(user2);
+//        }
+//        }
+//        mapList.get(side2).add(user2);
+//        System.out.printf("%s joins the %s side!\n", user2, side2);
+//        break;
+//
 import javax.swing.text.StringContent;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

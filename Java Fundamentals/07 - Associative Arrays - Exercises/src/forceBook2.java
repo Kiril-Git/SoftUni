@@ -1,3 +1,9 @@
+//  boolean nonMatch = mapList.entrySet().stream()
+//        .noneMatch(el -> el.getValue().contains(user));
+//
+//        if (nonMatch) {
+//        mapList.get(line[0]).add(line[1]);
+//        }
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
