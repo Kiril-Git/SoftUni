@@ -5,11 +5,11 @@ import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class basickOps2 {
+public class basickQueueOps {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-//        FIFO  -   First in First out          stack principle
+//        FIFO  -   First in First out          queue principle
 
         String[] commands = scanner.nextLine().split(" ");
         String input = scanner.nextLine();
@@ -18,26 +18,26 @@ public class basickOps2 {
         int s = Integer.parseInt(commands[1]);
         int x = Integer.parseInt(commands[2]);
 
-        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
 
         for (int i = 0; i < n; i++) {
 
             String[] line = input.split("\\s+");
-            stack.push(Integer.parseInt(line[i]));
+            queue.offer(Integer.parseInt(line[i]));
         }
         for (int i = 0; i < s; i++) {
-            stack.pop();
+            queue.poll();
         }
-        if (stack.isEmpty()) {
+        if (queue.isEmpty()) {
             System.out.println(0);
         }
-           else if (stack.contains(x)) {
+           else if (queue.contains(x)) {
             System.out.println("true");
         }
         else {
-            System.out.println(Collections.min(stack));
+            System.out.println(Collections.min(queue));
 
-//            int smallest = stack.stream().mapToInt(el -> el).min().getAsInt();
+//            int smallest = queue.stream().mapToInt(el -> el).min().getAsInt();
 //            System.out.println(smallest);
         }
     }
