@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class matrixElsSum {
+public class O4matrixElsSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

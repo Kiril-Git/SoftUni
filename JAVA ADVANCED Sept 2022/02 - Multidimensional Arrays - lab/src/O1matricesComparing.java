@@ -1,9 +1,8 @@
 //        Arrays.deepEquals(app1, app2);    compare matrices method
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class compareMatrices {
+public class O1matricesComparing {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

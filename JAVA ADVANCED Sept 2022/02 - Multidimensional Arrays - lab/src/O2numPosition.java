@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class numPosition2 {
+public class O2numPosition {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -10,6 +10,8 @@ public class numPosition2 {
         searchNum(matrix, soughtNum);
 
     }
+
+
 
     private static int[][] readMatrix(Scanner scanner) {
         int[] dimensions;
@@ -32,14 +34,17 @@ public class numPosition2 {
 
     private static void searchNum(int[][] matrix, int soughtNum) {
 
-        StringBuilder output = new StringBuilder();
-        for (int arr = 0; arr < matrix.length; arr++) {
-            for (int el = 0; el < matrix[0].length; el++) {
-                if (matrix[arr][el] == soughtNum){
-                    output.append(arr).append(" ").append(el).append(System.lineSeparator());
+        boolean nailedIt = false;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == soughtNum){
+                    System.out.println(i + " " + j);
+                    nailedIt = true;
                 }
             }
         }
-            System.out.println(output.isEmpty() ? "not found" : output);
+        if (!nailedIt) {
+            System.out.println("not found");
+        }
     }
 }
