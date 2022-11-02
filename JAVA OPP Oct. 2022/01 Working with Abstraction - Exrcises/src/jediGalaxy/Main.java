@@ -12,16 +12,24 @@ public class Main {
         int cols = dimensions[1];
 
         Field field = new Field(rows, cols);
+        String command = scanner.nextLine();
 
-            Jedi jedi = new Jedi(readPositions(scanner));
+        long sumStars = 0;
+        while (!command.equals("Let the Force be with you")) {
+
+            Jedi jedi = new Jedi(Arrays.stream(command.split(" "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray());
             int[] positionEvil = readPositions(scanner);
             int rowEvil = positionEvil[0];
             int calEvil = positionEvil[1];
 
-        Galaxy galaxy = new Galaxy(field, jedi);
-        galaxy.evilMove(rowEvil, calEvil);
+            Galaxy galaxy = new Galaxy(field, jedi);
+            galaxy.evilMove(rowEvil, calEvil);
 
-        int sumStars = galaxy.jediMove();
+            sumStars += galaxy.jediMove();
+            command = scanner.nextLine();
+        }
         System.out.println(sumStars);
 
     }

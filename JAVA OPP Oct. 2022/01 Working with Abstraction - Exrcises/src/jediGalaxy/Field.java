@@ -1,14 +1,14 @@
 package jediGalaxy;
 
 public class Field {
-    private int[][] starsField;
+    private long[][] starsField;
 
     public Field(int rows, int cols) {
-        this.starsField = new int[rows][cols];
+        this.starsField = new long[rows][cols];
 
         fillInGalaxy(rows, cols, starsField);
     }
-    private void fillInGalaxy(int rows, int cols, int[][] galaxy) {
+    private void fillInGalaxy(int rows, int cols, long[][] galaxy) {
         int value = 0;             //      fill in matrix
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -20,7 +20,7 @@ public class Field {
         return row >= 0 && col >= 0 && row < starsField.length && col < starsField[row].length;
     }
 
-    public int getValue(int row, int col){
+    public long getValue(int row, int col){
 
         return this.starsField[row][col];
     }
