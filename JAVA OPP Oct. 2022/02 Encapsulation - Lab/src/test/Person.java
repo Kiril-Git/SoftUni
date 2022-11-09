@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package test;
 
 public class Person {
 
@@ -6,9 +6,15 @@ public class Person {
     private String surname;
     private int age;
 
-    public Person(String forename, String surname, int age) {
+    public Person(String forename, String surname) {
         this.forename = forename;
         this.surname = surname;
+
+    }
+
+    public Person(String forename, String surname, int age) {
+        this(forename, surname);        //   друг конструктор извикваме  на първия ред
+
         this.age = age;
     }
 
@@ -35,9 +41,7 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
-
-    @Override
-    public String toString(){
-        return String.format("%s %s is %d years old.", forename, surname, age);
+    public String getFullName(){
+        return this.getForename() + " " + getSurname() + " - " + getAge();
     }
 }
