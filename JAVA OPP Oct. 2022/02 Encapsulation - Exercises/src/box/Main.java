@@ -13,6 +13,13 @@ public class Main {
 
         Box box = new Box(l, w, h);
 
-        System.out.printf("Surface Area - %.2f\n",box.calculateSurfaceArea(l, w, h));
+        System.out.printf("Surface Area - %.2f\n",
+                box.calculateSurfaceArea());
+
+        System.out.printf("Lateral Surface Area - %.2f\n",
+                box.calculateLateralSurfaceArea());
+
+        System.out.printf("Volume - %.2f\n",
+                box.calculateVolume());
     }
 }
