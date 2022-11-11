@@ -10,16 +10,20 @@ public class Main {
         double w = scanner.nextDouble();
         double h = scanner.nextDouble();
 
+        try {
+            Box box = new Box(l, w, h);
 
-        Box box = new Box(l, w, h);
+            System.out.printf("Surface Area - %.2f\n",
+                    box.calculateSurfaceArea());
 
-        System.out.printf("Surface Area - %.2f\n",
-                box.calculateSurfaceArea());
+            System.out.printf("Lateral Surface Area - %.2f\n",
+                    box.calculateLateralSurfaceArea());
 
-        System.out.printf("Lateral Surface Area - %.2f\n",
-                box.calculateLateralSurfaceArea());
-
-        System.out.printf("Volume - %.2f\n",
-                box.calculateVolume());
+            System.out.printf("Volume - %.2f\n",
+                    box.calculateVolume());
+        }
+        catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
