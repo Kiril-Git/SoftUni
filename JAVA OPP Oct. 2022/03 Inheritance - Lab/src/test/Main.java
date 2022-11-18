@@ -14,7 +14,9 @@ public class Main {
 
 
         Employee employee = new Employee("Stephan", 38, "Btx");
+        Person employee2 = new Employee("Todor", 46, "DBS");
 
         System.out.println(employee.toString());
+        System.out.println(employee2.toString());
     }
 }
