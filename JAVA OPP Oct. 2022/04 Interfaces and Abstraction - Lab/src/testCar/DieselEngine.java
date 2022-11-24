@@ -1,7 +1,7 @@
 package testCar;
 
 public class DieselEngine implements FuelEngine{
-    
+
 
     @Override
     public void start() {
