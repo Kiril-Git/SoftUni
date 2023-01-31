@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Customer Details</legend>
+            <div>
+                <label for="first name">First Name</label>
+                <input autofocus type="text" placeholder="George">
+            </div>
+        <div>
+            <label for="last name">Last Name</label>
+            <input type="text" placeholder="Devis">
+        </div>
+        <div>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="male" value="male">
+
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female" value="female">
+
+        <label for="other">Other</label>
+        <input type="radio" name="gender" id="other" value="other">
+    </div>
+    <div>
+        <label for="contact method">Preferred contact method:</label>
+        <label for="email">Email</label>
+        <input type="radio" name="email" id="email" value="email">
+        <label for="phone">Phone</label>
+        <input type="radio" name="phone" id="phone" value="phone">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" placeholder="your@email.com">
+    </div>
+    <div>
+        <label for="Town">Town</label>
+        <select name="Town" id="Town">
+        <option value="town">Varna</option>
+        <option value="town">Plovdiv</option>
+        <option value="town">Burgas</option>
+        <option value="town">Sofia</option>
+        <option value="town">Pleven</option>
+    </div>  
+    <div>
+        <label for="phone">Phone</label>
+        <input type="phone" placeholder="+359885236225">
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <input type="number" min="18" max="70">
+    </div>
+    <div>
+        <label for="Programming language">Programming language</label>
+        <select name="Programming language" id="Programming language">
+        <option value="Programming language">Java</option>
+        <option value="Programming language">PHP</option>
+        <option value="Programming language">C#</option>
+        <option value="Programming language">JavaScript</option>
+        <option value="Programming language">Python</option>
+        <option value="Programming language">Ruby</option>
+        <option value="Programming language">Other</option>
+
+    </div>  
+        </fieldset>
+    </form>
+</body>
+</html>
