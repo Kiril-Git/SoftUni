@@ -20,26 +20,30 @@ h1, h2, h3, h4, h5, h6{
     list-style-type: circle;
 }
 table{
+    border: 1px solid gray;
     width: 100%;
-    border: none;
     border-collapse: collapse;
+
 }
 thead{
     background: #CCCCCC;
     text-align: left;
+    padding: 5px;
 }
-
-tbody, td, th{
-    border-width: 1px;
+table th{
+    border: 2px solid gray;
+    padding: 5px;
+}
+table td{
+    border: 2px solid gray;
     background-color: #FFFFFF;
-    border-style: solid;
     padding: 5px;
 }
 tbody tr:nth-child(even) td{
     background: #F1F1F1;
 }
 tr:hover{
-    background: rgb(0, 0, 0);
+    background-color: aquamarine;
     color: rgb(255, 255, 255);
 }
 
