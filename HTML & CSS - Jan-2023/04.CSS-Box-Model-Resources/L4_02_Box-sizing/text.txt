@@ -1,0 +1,16 @@
+Front End
+I like HTML and CSS!
+
+
+
+body{
+    width: 250px ;
+    height: 250px;
+    border: dotted rgb(35, 202, 133);
+
+}
+p{
+    width: 100%;
+    padding: 20px;
+
+}
