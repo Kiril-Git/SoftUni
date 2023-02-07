@@ -1,0 +1,12 @@
+html{
+    font-family: Helvetica, sans-serif;
+}
+nav{
+    display: inline-block;
+}
+nav li{
+    display: inline-block;
+}
+nav li a{
+    color: rgb(73, 167, 80);
+}
