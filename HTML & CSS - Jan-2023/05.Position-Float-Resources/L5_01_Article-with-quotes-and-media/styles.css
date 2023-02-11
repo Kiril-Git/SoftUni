@@ -1,0 +1,48 @@
+html{
+    max-width: 1200px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+*{
+    box-sizing: border-box;
+}
+p.site-title{
+    text-transform:uppercase;
+    font-weight: bold;
+    display: inline-block;
+    font-size:xx-large;
+}
+body{
+    margin: 30px 120px;
+    padding: 0px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(51, 51, 51) ;
+}
+header{
+    border-bottom: 2px solid black;
+}
+img{
+    background: white;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 10px;
+    box-shadow: 1px 1px 9px -1px black;
+}
+.img-one{
+    float: right;
+}
+.img-two{
+    float: left;
+}
+.block-quote{
+    float: right;
+    font-style: italic;
+    width: 40%;
+    border-left: 2px solid lightgray;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.a-name{
+    text-align: right;
+}
