@@ -23,39 +23,26 @@ header{
     border-bottom: 2px solid black;
 }
 img{
-    width: 30%;
     background: white;
     padding: 10px;
     border: 5px solid black;
     margin: 10px;
     box-shadow: 1px 1px 9px -1px black;
 }
-
-.top-block{
-display: inline-block;
-width: 65%;
-vertical-align: top;
+.img-one{
+    float: right;
 }
-.bottom-block{
-    display: inline-block;
-    width: 65%;
-    vertical-align: top;
+.img-two{
+    float: left;
 }
 blockquote{
+    float: right;
     font-style: italic;
     width: 40%;
     border-left: 2px solid lightgray;
-    padding-left: 30px;
-    margin-left: 15px;
+    padding-left: 20px;
+    margin-left: 20px;
 }
 .a-name{
     text-align: right;
-}
-.middle-block{
-    width: 50%;
-}
-blockquote,
-.middle-block{
-    display: inline-block;
-    vertical-align: top;
 }

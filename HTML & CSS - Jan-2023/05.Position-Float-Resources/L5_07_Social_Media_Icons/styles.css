@@ -1,0 +1,40 @@
+@import url("https://use.fontawesome.com/releases/v5.10.2/css/all.css");
+
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ul li{
+    list-style-type: none;
+    display: inline-block;
+    background: lightgray;
+    padding: 20px;
+    border-radius: 50%;
+    margin: 10px;
+}
+li i {
+    font-size: 30px;
+    color: black;
+}
+.facebook i:hover{
+    color: #3B5998;
+}
+.twitter i:hover{
+    color: #00ACED;
+}
+.google i:hover{
+    color: #DD4B39;
+}
+.linkedin i:hover{
+    color: #007BB6;
+}
+.instagram i:hover{
+    color: #517FA4;
+}
+
+/* Needed only for Judge */
+li a {
+    border-radius: 50%;
+}
