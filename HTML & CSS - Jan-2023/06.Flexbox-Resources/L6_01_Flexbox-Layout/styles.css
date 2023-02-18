@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    background: #EEEEEE;
+    padding: 60px;
+    font-family:  Helvetica, sans-serif;
+}
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+header,
+main, 
+aside,
+footer{
+    background: #EEEEEE;
+    border-radius: 8px;
+    box-shadow: 1px 1px 10px -2px black;
+    text-transform: uppercase;
+}
+header{
+    padding: 10px 10px 70px 10px;
+}
+main,
+aside{
+    margin: 20px 0; 
+    padding: 10px 10px 180px 10px;
+}
+footer{
+    padding: 10px 10px 50px 10px;
+}
+
+main{
+    margin-right: 20px;
+    flex-grow: 3;
+}
+aside{
+    flex-grow: 1;
+}
+header,
+footer{
+    flex-basis: 100%;
+}
