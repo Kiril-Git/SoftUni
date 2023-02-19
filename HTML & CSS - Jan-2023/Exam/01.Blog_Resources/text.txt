@@ -1,0 +1,35 @@
+Blog
+
+Movie reviews
+
+TV show guides
+
+Celebrity interviews
+
+Arts and culture
+
+Other Category
+
+Finance
+
+Business
+
+Social media marketing
+
+Sales process and strategy
+
+Web development
+
+Travel hacks
+
+
+
+img::before {
+    content: 'some text';
+    color: white;
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 67%;
+    left: -80px;
+}
