@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #EEEEEE;
+    display: flex;
 }
 *{
     box-sizing: border-box;
@@ -12,7 +13,7 @@ body, ul, li{
    
     }
     .gallery{
-        margin: 50px;
+        margin: 120px 223px;
         
     } 
     .gallery ul{
@@ -20,18 +21,19 @@ body, ul, li{
         flex-wrap: wrap;
     }
     .gallery li{
-        list-style: none;
-        align-items: center;
-        margin: 20px;
-        padding: 10px;
-        background: #FFFFFF;
         border: 7px solid black;
+        background: #FFFFFF;
+        padding: 22px;
+        margin: 15px 0;
         box-shadow: 1px 1px 12px -1px black;
-        width: 28%;
+        list-style-type: none;
+        align-items: center;
+        width: 30%;
     }
-    .gallery li img{
-        width: 100%;
+    img{
+        width: 100%; 
     }
+  
 
   
 
