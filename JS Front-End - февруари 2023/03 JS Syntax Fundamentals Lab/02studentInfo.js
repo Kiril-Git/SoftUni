@@ -1,9 +1,8 @@
-function solve(name, age, grade){
-
-    console.log(`Name: ${name}, Age: ${age}, Grade: ${averageGrade.toFixed(2)}`)
+function solve(name, age, grade) {
+    console.log(`Name: ${name}, Age: ${age}, Grade: ${grade.toFixed(2)}`);
 }
 
-
-name= 'Ivan';
-age = 25;
-grade = 4.654;
+solve('Ivan', 25, 3.258)
+solve('John', 15, 5.54678)
+solve('Steve', 16, 2.1426)
+solve('Marry', 12, 6.00)
