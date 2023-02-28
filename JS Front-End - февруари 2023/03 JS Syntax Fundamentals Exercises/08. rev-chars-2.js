@@ -7,14 +7,14 @@ function solve(first, second, third){
 
         let temp = arr.pop();       // pop the last el
 
-        arr.unshift(temp);          //  return the last at the front
+        arr.unshift(temp);          //  return the last el at the front
 
-        arr2.push (temp);           //  push in the new arr
+        arr2.push (temp);           //  push it in the new arr
 
     }
 
     
-    console.log(arr2.join(' '))
+    console.log(arr2.join(' '))     //  print the new arr
 
 }
 solve('A', 'B', 'C')

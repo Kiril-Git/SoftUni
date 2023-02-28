@@ -11,7 +11,7 @@ function solve(firstN, lastN){
         str += i + ' ';
 
     }
-    console.log(str)
+    // console.log(str)
 
     console.log(`${str.trim()}`)    // remove last space
 
