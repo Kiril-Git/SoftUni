@@ -1,6 +1,6 @@
 function solve(arr){
 
-    let sortedArr = arr.sort((a, b) => a - b);
+    let sortedArr = [...arr].sort((a, b) => a - b);
 
     let result = [];
 
@@ -15,5 +15,7 @@ function solve(arr){
     }
 
     console.log(result);
+
+
 }
 solve([1, 65, 3, 52, 48, 63, 31, -3, 18, 56])
