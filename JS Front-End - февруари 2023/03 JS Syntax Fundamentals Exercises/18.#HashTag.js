@@ -7,12 +7,12 @@ function solve(text){
         if (el.startsWith('#') && el.length > 1 && isValid(el)){
 
             temp = el.slice(1);
-            
+
             console.log(temp);
         }
     }
 
-
+   
 
     function isValid(str){
 
@@ -20,7 +20,6 @@ function solve(text){
         let flag = true;
     
         for (let i = 1; i < word.length; i++) {
-       
             
             if(word.charCodeAt(i) < 97 || word.charCodeAt(i) > 122){
     

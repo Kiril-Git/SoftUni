@@ -14,5 +14,5 @@ function solve(text){
 
     }
 }
-solve('Nowadays everyone uses # to tag a #special word in #socialMedia')
+solve('Nowadays everyone uses # to tag a #spe-cial word in #socialMedia')
 solve('The symbol # is known #variously in English-speaking #regions as the #number sign')
