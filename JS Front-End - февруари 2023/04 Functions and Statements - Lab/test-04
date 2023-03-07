@@ -1,0 +1,17 @@
+function maskedWordInText(){
+   let myArray = ['Hi my name is John?'];
+   let searchWord = 'John';
+   /*
+   let maskedWord =  myArray.map(element =>
+       '*'.repeat(element.length).filter(element === searchWord)).join(' ');
+    */
+ 
+ 
+       let result = myArray.filter(name => name === searchWord)
+
+   console.log(result);
+   // Expected out: 'Hi my name is ****?'
+}
+ 
+ 
+maskedWordInText()
