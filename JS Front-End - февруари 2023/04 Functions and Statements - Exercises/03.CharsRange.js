@@ -6,8 +6,10 @@ function charsRange(first, second){
     let end = second.charCodeAt();
 
     if(start > end){
-        end = first.charCodeAt();
-        start = second.charCodeAt();
+/*        end = first.charCodeAt();
+        start = second.charCodeAt();        */
+
+        [start, end] = [end, start ]
     }
 
     for (let i = start+1; i < end ; i++) {
@@ -16,7 +18,8 @@ function charsRange(first, second){
 
         arr.push(temp);
     }
-    console.log(arr.join(' '));
+    // console.log(arr.join(' '));
+    console.log(...arr)
 }
 charsRange('a', 'd');
 charsRange('#', ':');
