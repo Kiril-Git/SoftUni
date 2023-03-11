@@ -16,7 +16,7 @@ for (let el of text) {
     }
 }
     for (let el of text) {
-        let isMatch = el.match(/[A-Za-z0-9]+/);
+        let isMatch = el.match(/^[a-zA-Z0-9]+$/g);
         if (!isMatch) {
             result = 'Password must consist only of letters and digits';
             console.log(result)
