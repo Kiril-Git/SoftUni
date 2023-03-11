@@ -1,26 +1,29 @@
 function solve(input){
+    const lengthCheck = (input) => input.length > 5 && input.length < 11;
+    const contentCheck = (input) => /^[a-zA-Z0-9]+$/g.test(input);     //   /^([^_]\w+)$/g
+    const numsCheck = (input) => [...input.matchAll(/\d/g)].length >= 2;
 
-    let result = 'Password is valid';
-    let count = 0;
+    let result = '';
 
-    if(input.length < 6 || input.length > 10 ){
+    if(!lengthCheck(input)){
 
         result = 'Password must be between 6 and 10 characters';
         console.log(result)
     }
 
-    for (let el of input) {
-        let isMatch = el.match(/[0-9]/);
-        if (isMatch) {
-            count++;
-        }
+    if(!contentCheck(input)){
+
+        result = 'Password must consist only of letters and digits';
+        console.log(result)
     }
-    if (count < 2){
+    if (!numsCheck(input)){
         result = 'Password must have at least 2 digits'
         console.log(result)
 
     }
+    if (result.length === 0){
+        console.log('Password is valid')
+    }
 
 }
-solve('logIn')
-solve('log66')
+solve('Pass66')

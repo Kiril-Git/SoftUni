@@ -23,7 +23,6 @@ for (let el of text) {
             break;
         }
     }
-
     if (count < 2){
         result = 'Password must have at least 2 digits';
         console.log(result)
@@ -32,7 +31,7 @@ for (let el of text) {
         console.log('Password is valid')
     }
 }
-// solve('log!n')
+solve('log!n')
 solve('MyPass123')
 
 
