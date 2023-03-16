@@ -1,21 +1,10 @@
-function adressBook(array) {
-    obj = {};
+function solve(){
 
-    for(const info of array) {
-        [name, address] = info.split(':');
-        obj[name] = address;
-    }
+    let firstN
+    let secondN
 
-    let sortedKeys = Object.keys(obj).sort();
-
-    for (const key of sortedKeys) {
-        console.log(`${key} -> ${obj[key]}`);
-    }
+    return [firstN, secondN]
 }
-adressBook(['Tim:Doe Crossing',
-    'Bill:Nelson Place',
-    'Peter:Carlyle Ave',
-    'Bill:Ornery Rd']
 
-
-)
+console.log(5, 3)
+console.log(5 + 3)

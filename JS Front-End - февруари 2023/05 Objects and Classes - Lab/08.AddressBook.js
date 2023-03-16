@@ -9,7 +9,8 @@ function printAddressBook(input){
             addressBook[name] = address;
     }
 
-    let sortedBook = Object.keys(addressBook).sort();
+    let sortedBook = Object.keys(addressBook).sort()
+                                     //   .sort((a, b) => a.localeCompare(b));
 
     for (const el of sortedBook) {
 
