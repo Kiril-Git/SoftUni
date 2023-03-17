@@ -22,6 +22,7 @@ function solve(input) {
        let song = new Song(type, name, time);
         songs.push(song);
     }
+/*
     if (genre === 'all'){
         songs.forEach((el) => el.sayHello())
     }
@@ -30,6 +31,12 @@ function solve(input) {
 
         filtered.forEach((el) => el.sayHello())
     }
+    */
+    genre === 'all'
+        ?songs.forEach((el) => el.sayHello())
+        :songs.filter((el) => el.type === genre)
+        .forEach((el) => el.sayHello())
+
 }
 solve([3,
     'favourite_DownTown_3:14',
