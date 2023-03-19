@@ -1,7 +1,7 @@
-function printStockList(stock, newSupply){
+function printStockList(stock, delivery){
 
     let productList = {}
-    let combined = [...stock, ...newSupply]         //      Combine both arrs
+    let combined = [...stock, ...delivery]         //      Combine both arrs
 
     for (let i = 0; i < combined.length; i+=2) {
 

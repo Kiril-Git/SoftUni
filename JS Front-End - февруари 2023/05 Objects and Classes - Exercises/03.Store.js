@@ -1,4 +1,4 @@
-function printStockList(stock, newSupply){
+function printStockList(stock, delivery){
 
     let productList = {}
 
@@ -9,10 +9,10 @@ function printStockList(stock, newSupply){
 
             productList[name] = quantity;
     }
-    for (let i = 0; i < newSupply.length; i+=2) {
+    for (let i = 0; i < delivery.length; i+=2) {
 
-        let name = newSupply[i]
-        let quantity = Number(newSupply[i+1]);
+        let name = delivery[i]
+        let quantity = Number(delivery[i+1]);
 
         if (productList.hasOwnProperty(name)){
             productList[name] += quantity;
