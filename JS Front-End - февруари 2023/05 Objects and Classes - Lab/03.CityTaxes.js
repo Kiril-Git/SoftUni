@@ -1,34 +1,25 @@
-function cityTaxes(name, population, treasury ){
+    class Vehicle {
 
-    let city = {
-            name,
-            population,
-            treasury,
-            taxRate: 10,
-            collectTaxes() {
-                this.treasury += Math.floor (this.population * this.taxRate)
-            },
-            applyGrowth(percentage) {
-                percentage /= 100;
-                this.population *= percentage + 1;
-                },
-        
-            applyRecession(percentage) {
-                percentage /= 100;
-                this.treasury *=  1 - percentage;
-
-            }
+        constructor(type, model, parts, fuel) {
+            this.type = type;
+            this.model = model;
+            this.parts = parts;
+            this.fuel = fuel;
+            this.quality = this.parts.engine * this.parts.power
+            this.parts.quality = this.quality
         }
-    return city;
-}
-const city =
-    cityTaxes('Tortuga',
-        7000,
-        15000);
-city.collectTaxes();
-console.log(city.treasury);
-city.applyGrowth(5);
-console.log(city.population);
+
+        drive(feelLoss) {
+            this.fuel -= feelLoss
+        }
+    }
+
+
+let parts = { engine: 6, power: 100 };
+let vehicle = new Vehicle('a', 'b', parts, 200);
+vehicle.drive(100);
+console.log(vehicle.fuel);
+console.log(vehicle.parts.quality);
 
 
 

@@ -12,11 +12,9 @@ function printWordsList(input) {
 
         for (const el of input) {
 
-        let name = el
-
-        if (word === name) {
+        if (word === el) {
             reps++
-            wordsList[name] = reps;
+            wordsList[el] = reps;
         }
     }
 }
