@@ -15,8 +15,7 @@ function addItem() {
     input.value = '';
 
     function deleteHandler(e){
-        const liItem = e.currentTarget.parentElement
-        liItem.remove()
-
+        const anchor = e.currentTarget
+        anchor.parentElement.remove()
     }
 }

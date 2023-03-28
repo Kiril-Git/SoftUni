@@ -3,11 +3,18 @@ function sum (){
 }
 sum();
 
-const liElements = document.getElementsByTagName('li');
-const textInput = document.getElementById('text-input');
+const btnEl = document.getElementById('btn');
+btnEl.addEventListener('mouseover', clickHandler )
 
-for (const el of liElements) {
+const input = document.getElementById('text-input')
+input.addEventListener('keyup', keyPressHandler)
 
-    el.innerHTML += ' <p>Custom Paragraph<p/ > '
-    el.style.background = 'red'
+function clickHandler(e){
+
+    console.log(e.target)
 }
+
+function keyPressHandler(e){
+    console.log(e.target)
+}
+
