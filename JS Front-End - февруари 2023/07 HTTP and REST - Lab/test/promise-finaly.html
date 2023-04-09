@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Test Promise - Finally</h1>
+<script>
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({id: 1, name: 'Kiril'})
+        }, 2000);
+    }).then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+    .finally(() => {
+        console.log('Goes here anyhow!')
+    })
+</script>
+
+</body>
+</html>
