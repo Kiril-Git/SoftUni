@@ -1,1 +1,17 @@
-/* TODO: Add media queries */
+@media all and (max-width: 600px){
+    .thumbnails {
+
+        flex-direction: column;
+
+    }
+    .thumbnails > div {
+        width: 100%;
+    }
+    .thumbnails a img{
+        object-fit: cover;
+        max-height: 200px;
+    }
+    .thumbnails > div > :last-child{
+        margin-bottom: 2em;
+    }
+}
