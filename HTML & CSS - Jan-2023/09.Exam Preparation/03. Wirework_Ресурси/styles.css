@@ -1,0 +1,185 @@
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+ 
+body{
+    margin: 0;
+    font-family:  Helvetica, sans-serif;
+}
+
+*, *::after, ::before{
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+}
+.header-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header-logo-title{
+    padding-right: 18px;
+    border-right: 1px solid rgb(98, 96, 96);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.header-logo-text{
+    margin-left: 18px;
+    font-size: 12px;
+    font-weight: lighter;
+    color: rgb(98, 96, 96);
+}
+
+.header-nav-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.header-nav-list-item-link{
+    text-decoration: none;
+    padding: 14px;
+    background: #ECECEC;
+    border-right: 1px solid white;
+    color: rgb(84, 83, 83);
+    font-size: 12px;
+}
+
+.header-nav-list > li:first-child a {
+    background-color: #E24E2A;
+    color: white;
+}
+.intro{
+    padding: 0 
+    
+}
+.intro-img {
+    width: 100%;
+}
+.intro-img img{
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+.intro-content{
+    background-color: #E24E2A;
+    color: white;
+    position: relative;
+    bottom: 20px;
+    line-height: 25px;
+
+}
+.intro-content-text{
+    padding: 40px 80px;
+    text-align: center;
+}
+
+.intro-content-text a{
+    color: white;
+}
+
+.benefits{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 40px 90px 40px;
+    background-color: #383838;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 36px;
+}
+
+.benefit-img i{
+    padding: 15px;
+    background-color: #E24E2A;
+    font-size: 50px;
+}
+
+.benefit-title{
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.benefit p{
+    color: rgb(98, 96, 96);
+    padding-top: 20px;
+    border-top: 1px solid rgb(98, 96, 96);
+    margin:0 10px 0  10px ;
+    font-size: 14px;
+}
+.cta{
+    text-align: center;
+    padding: 70px 120px 70px 120px;
+    position: relative;
+    bottom: 37px;
+}
+.cta-title{
+    margin: 0;
+    color: rgb(98, 96, 96);
+    font-size: 30px;
+    font-weight: lighter;
+}
+.cta-text{
+    margin: 5px 0 25px 0;
+    color: rgb(146, 146, 146);
+}
+
+.cta-btn{
+    background-color: #1B9772;
+    padding: 15px 40px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 40px 90px 40px;
+    background-color: #383838;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 36px;
+}
+.skill-title{
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.skill p{
+    color: rgb(98, 96, 96);
+    padding-top: 20px;
+    margin:0 10px 0  10px ;
+    font-size: 14px;
+}
+
+footer p{
+margin: 0;
+padding: 70px 40px 90px 40px;
+background-color: #1B9772;
+color: #72c0a9;
+text-align: center;
+position: relative;
+bottom: 36px;
+letter-spacing: 1px;
+font-size: 12px;
+}
+.footer-text a{
+    text-decoration: none;
+    color: #c1eade;
+}
