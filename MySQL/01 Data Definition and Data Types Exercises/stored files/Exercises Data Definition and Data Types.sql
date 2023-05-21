@@ -344,6 +344,12 @@ SELECT name FROM towns;
 SELECT name FROM departments;
 SELECT first_name, last_name, job_title, salary FROM employees;
 
+-- 17
+
+UPDATE employees
+SET salary = salary * 1.1;
+
+SELECT salary from employees;
 
 
 
