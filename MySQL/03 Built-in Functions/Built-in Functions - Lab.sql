@@ -80,9 +80,41 @@ SELECT SIGN (- 23.356);				-- 	-1
 
 SELECT RAND();						-- 0.41299254765081456 	(always from 0 to 1)
  
-SELECT ROUND( RAND() * 10);			-- SELECT random number from 1 to 10	(int)
+SELECT FLOOR( RAND() * 10);			-- SELECT random number from 1 to 10	(int)
 
+											--	SELECT FLOOR(RAND()*(b-a+1))+a;									
 
+SELECT FLOOR( RAND() * (25-12+1))+12;		-- 	SELECT random number from 12 to 25	(int)
+
+SELECT EXTRACT(YEAR FROM '2023-05-16');		--	2023
+
+SELECT title, extract(year from year_of_release) AS 'Year of Release'
+FROM books; 
+
+SELECT TIMESTAMPDIFF(YEAR, '2023-05-16', '2022-05-15');				--	-1
+SELECT ABS( TIMESTAMPDIFF(YEAR, '2023-05-16', '2022-05-15'));		--	 1
+
+SELECT TIMESTAMPDIFF(MONTH, '2023-05-31', '2023-05-30');			--	 0
+SELECT TIMESTAMPDIFF(MONTH, '2023-05-31', '2023-07-01');			--	 1
+
+ USE mydb;
+ SELECT employee_id, CONCAT_WS(' ', first_name, last_name) AS 'Full Name', 
+ TIMESTAMPDIFF (YEAR, hire_date, now()) AS 'Years in Service'
+ FROM employees;													--	20
+
+--		3
+
+SELECT SUM(cost) FROM books;				--	SELECT SUM(column_name) FROM table_name; 
+
+SELECT ROUND( SUM(cost), 2) FROM books;		--  628.63
+
+--		4
+
+SELECT CONCAT_WS(' ', first_name, last_name) AS 'Full Name', 
+ TIMESTAMPDIFF (DAY, born, died) AS 'Days Lived'
+ FROM authors;													--	31164
+ 
+ 
 
 
 
