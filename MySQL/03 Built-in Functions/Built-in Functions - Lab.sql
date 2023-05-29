@@ -114,7 +114,36 @@ SELECT CONCAT_WS(' ', first_name, last_name) AS 'Full Name',
  TIMESTAMPDIFF (DAY, born, died) AS 'Days Lived'
  FROM authors;													--	31164
  
+ -- 	-
  
+ SELECT now();
+ 
+ -- 	-
+ 
+ INSERT INTO authors (first_name, last_name, born) VALUES('Donga', 'Stankov', '1971-10-10');
+ UPDATE authors
+ SET first_name = 'Делян', last_name = 'Станков'
+ WHERE id = 10;
+ 
+ --		-
+ 
+SELECT concat_ws(' ',first_name, last_name) AS 'name',
+TIMESTAMPDIFF(YEAR, born, NOW()) AS 'years'
+FROM authors;
+
+--		-
+
+SELECT concat_ws(' ', first_name, last_name) AS 'name',
+ date_format(born, '%D %M  %x') AS 'born'
+FROM authors;
+
+--		5 
+
+SELECT title FROM books WHERE title LIKE 'Harry Potter%';
+
+SELECT title FROM books WHERE title REGEXP 'Harry Potter';
+
+SELECT title FROM books WHERE title REGEXP 'Harry Potter and the [do]';
 
 
 
