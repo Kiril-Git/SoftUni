@@ -86,7 +86,42 @@ SELECT `name`, DATE_FORMAT(`start`, '%Y-%m-%d') FROM games WHERE YEAR(`start`) I
 
 --  	13
 
-SELECT user_name, email as 'email provider'   FROM diablo.users;
+SELECT user_name, SUBSTRING_INDEX( email, '@', -1) as `email provider` FROM 
+users ORDER BY `email provider`,  user_name;
+
+SELECT user_name, REGEXP_REPLACE( email, '.*@', '') as `email provider` FROM 
+users ORDER BY `email provider`,  user_name;
+
+--		14
+
+SELECT user_name, ip_address FROM users WHERE ip_address LIKE '___.1%.%.___' ORDER BY 
+user_name;
+
+--  	15
+
+SELECT name AS 'game', 
+CASE
+WHEN HOUR(start) BETWEEN 0 AND 11 THEN 'Morning'
+WHEN HOUR(start) BETWEEN 12 and 17 THEN 'Afternoon'
+ELSE 'Evening'
+END AS 'Part of the Day',
+
+CASE 
+WHEN duration BETWEEN 0 AND 3 THEN 'Extra Short'
+WHEN duration BETWEEN 4 AND 6 THEN 'Short'
+WHEN duration BETWEEN 7 AND 10 THEN 'Long'
+ELSE 'Extra Long'
+END AS 'Duration' FROM games;
+
+--		16
+
+SELECT product_name, order_date,
+DATE_ADD(order_date, INTERVAL 3 DAY) AS 'pay_due',
+DATE_ADD(order_date, INTERVAL 1 MONTH) AS 'delivery_due'
+ FROM orders;
+
+
+
 
 
 
