@@ -73,13 +73,20 @@ ORDER BY iso_code;
 
 --		11		REPLACE(left(river_name, 1), 1, '')
 
-SELECT peak_name, river_name, LOWER( CONCAT( peak_name, SUBSTR(river_name, 2)) ) as mix FROM  peaks, rivers WHERE 
+SELECT peak_name, river_name, LOWER( CONCAT( peak_name, SUBSTR(river_name, 2)) ) as mix 
+FROM  peaks, rivers WHERE 
 RIGHT(peak_name, 1) = LEFT(river_name, 1) ORDER BY MIX;
 
 SELECT peak_name, river_name, CONCAT(LOWER(peak_name), SUBSTR(river_name, 2))  as mix FROM  peaks, rivers WHERE 
 RIGHT(peak_name, 1) = LEFT(river_name, 1) ORDER BY MIX;
 
+--		12
 
+SELECT `name`, DATE_FORMAT(`start`, '%Y-%m-%d') FROM games WHERE YEAR(`start`) IN (2011, 2012) ORDER BY `start` LIMIT 50;
+
+--  	13
+
+SELECT user_name, email as 'email provider'   FROM diablo.users;
 
 
 
