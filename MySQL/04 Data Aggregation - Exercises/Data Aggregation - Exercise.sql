@@ -117,8 +117,43 @@ SELECT department_id, AVG(salary) AS 'avg_salary' FROM high_paid_employees
 GROUP BY department_id
 ORDER BY department_id ASC;
 
+--		14
 
+SELECT department_id, MAX(salary) AS 'max_salary' FROM employees
+GROUP BY department_id
+HAVING max_salary NOT BETWEEN 30000 AND 70000
+ORDER BY department_id;
 
+--		SELECT salary FROM employees WHERE department_id = 5
+
+--		15
+
+SELECT COUNT(*) FROM employees WHERE manager_id IS NULL; 
+
+--		16
+
+SELECT department_id, (SELECT DISTINCT salary 
+FROM employees e WHERE e.department_id = employees.department_id
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2) AS 'third_highest_salary'
+FROM employees
+GROUP BY department_id
+HAVING third_highest_salary IS NOT NULL
+ORDER BY department_id;
+
+--		17
+
+SELECT first_name, last_name, department_id FROM employees e1
+WHERE salary > (SELECT AVG(salary) AS `avg` FROM employees AS e2 
+WHERE e1.department_id = e2.department_id)
+ORDER BY department_id, employee_id
+LIMIT 10;
+
+--		18
+
+SELECT department_id, round(SUM(salary), 2) AS 'total_salary' FROM employees
+GROUP BY department_id
+ORDER BY department_id;
 
 
 
