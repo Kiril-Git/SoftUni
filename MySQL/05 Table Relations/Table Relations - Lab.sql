@@ -1,0 +1,1 @@
+CREATE DATABASE mountains_and_peaks;
