@@ -108,6 +108,33 @@ INSERT INTO students_exams(student_id, exam_id) VALUES
 
 SELECT * FROM students_exams;
 
+--		4:
+
+CREATE DATABASE self_referencing;
+
+USE self_referencing;
+
+CREATE TABLE teachers(
+teacher_id INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(30),
+manager_id INT,
+
+FOREIGN KEY (manager_id) REFERENCES teachers(teacher_id) ON DELETE CASCADE
+)
+AUTO_INCREMENT = 101
+;
+
+INSERT INTO teachers(`name`, manager_id) VALUES
+('John', NULL),
+('Maya', 106),
+('Silvia', 106),
+('Ted', 105),
+('Mark', 101),
+('Greta', 101);
+
+
+SELECT * FROM teachers;
+
 
 
 
