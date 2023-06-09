@@ -1,6 +1,6 @@
 CREATE DATABASE one_to_one_relationship;
 
---		1
+--		1:
 
 CREATE TABLE people(
 person_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,7 +28,7 @@ INSERT INTO people(first_name, salary, passport_id) VALUE
 ('Tom', 56100.00, 103),
 ('Yana', 60200.00, 101);
 
---		2
+--		2: 
 
 CREATE DATABASE one_to_many_relationship;
 
@@ -44,22 +44,71 @@ model_id INT PRIMARY KEY AUTO_INCREMENT,
 manufacturer_id INT,
 
 FOREIGN KEY (manufacturer_id) REFERENCES manufacturers(manufacturer_id) ON DELETE CASCADE
-);
+)
+AUTO_INCREMENT = 101
+;
 
 INSERT INTO manufacturers(name, established_on) VALUE
 ('BMW', '1916-03-01'),
 ('Tesla', '2003-01-01'),
 ('Lada', '1966-05-01');
 
-INSERT INTO models(model_id, name, manufacturer_id) VALUE
-(101, 'X1', 1),
-(102, 'i6', 1),
-(103, 'Model S', 2),
-(104, 'Model X', 2),
-(105, 'Model 3', 2),
-(106, 'Nova', 3);
+INSERT INTO models(name, manufacturer_id) VALUE
+('X1', 1),
+('i6', 1),
+('Model S', 2),
+('Model X', 2),
+('Model 3', 2),
+('Nova', 3);
 
 SELECT * FROM models;
+
+--		3:
+
+CREATE DATABASE many_to_many_relationship;
+
+CREATE TABLE students(
+student_id INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(30) 
+);
+
+CREATE TABLE exams(
+exam_id INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(30) 
+)
+AUTO_INCREMENT = 101
+;
+
+CREATE TABLE students_exams(
+student_id INT,
+exam_id INT,
+PRIMARY KEY (student_id, exam_id),
+
+FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
+FOREIGN KEY (exam_id) REFERENCES exams(exam_id) ON DELETE CASCADE
+);
+
+INSERT INTO students(name) VALUE
+('Mila'),
+('Toni'),
+('Ron');
+
+INSERT INTO exams(name) VALUE
+('Spring MVC'),
+('Neo4j'),
+('Oracle 11g');
+
+INSERT INTO students_exams(student_id, exam_id) VALUES
+(1, 101),
+(1, 102),
+(2, 101),
+(3, 103),
+(2, 102),
+(2, 103);
+
+SELECT * FROM students_exams;
+
+
 
 
 
