@@ -135,6 +135,100 @@ INSERT INTO teachers(`name`, manager_id) VALUES
 
 SELECT * FROM teachers;
 
+--		5:
+
+CREATE DATABASE online_store; 
+
+CREATE TABLE item_types(
+item_type_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50)
+);
+
+CREATE TABLE items(
+item_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50),
+item_type_id INT,
+
+FOREIGN KEY (item_type_id) REFERENCES item_types(item_type_id) ON DELETE CASCADE
+);
+
+CREATE TABLE order_items(
+order_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+item_id INT,
+
+FOREIGN KEY (item_id) REFERENCES items(item_id) ON DELETE CASCADE
+);
+
+CREATE TABLE cities(
+city_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50)
+);
+
+CREATE TABLE customers(
+customer_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50),
+`birthday` DATE,
+city_id INT,
+
+FOREIGN KEY (city_id) REFERENCES cities(city_id) ON DELETE CASCADE
+);
+
+CREATE TABLE orders(
+order_id INT,
+customer_id INT,
+
+FOREIGN KEY (order_id) REFERENCES order_items(order_id) ON DELETE CASCADE,
+FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
+);
+
+--		6:
+
+CREATE DATABASE University; 
+
+CREATE TABLE subjects(
+subject_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`subject_name` VARCHAR(50)
+);
+
+CREATE TABLE majors(
+major_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50)
+);
+
+CREATE TABLE students(
+student_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+student_number VARCHAR(12) UNIQUE NOT NULL,
+student_name VARCHAR(50) NOT NULL,
+major_id INT,
+
+FOREIGN KEY (major_id) REFERENCES majors(major_id) ON DELETE CASCADE
+);
+
+CREATE TABLE agenda(
+student_id INT,
+subject_id INT,
+
+FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
+FOREIGN KEY (subject_id) REFERENCES subjects(subject_id) ON DELETE CASCADE
+);
+
+CREATE TABLE payments(
+payment_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+payment_date DATE,
+payments_amount DECIMAL(8, 2),
+student_id INT,
+
+FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
 
 
 
