@@ -117,7 +117,7 @@ DELIMITER $$
 BEGIN
 
     SELECT first_name,	last_name FROM employees
-
+    --      Преизползваме функцията от 5-та задача ↓
     WHERE (SELECT ufn_get_salary_level(salary)) = salary_level
 
     ORDER BY first_name DESC , last_name DESC ;
@@ -145,9 +145,75 @@ DELIMITER ;
 
 CALL usp_get_employees_by_salary_level  ('High');
 
+--      7
 
+DELIMITER $$
+DROP FUNCTION ufn_is_word_comprised;
 
+CREATE FUNCTION ufn_is_word_comprised (set_of_letters varchar(50), word varchar(50))
+    RETURNS Binary
+    RETURN word REGEXP (CONCAT('^[', set_of_letters, ']+$') ) ;
 
+    SELECT ufn_is_word_comprised   ('0eo9fdid2gas','Sofia');
+
+--      вариант 2 ↓
+
+CREATE FUNCTION ufn_is_word_comprised_2 (set_of_letters varchar(50), word varchar(50))
+    RETURNS INT
+    DETERMINISTIC
+    BEGIN
+    DECLARE result INT;
+    SET result := ( word REGEXP (CONCAT('^[', set_of_letters, ']+$'))
+        );
+RETURN result;
+    END
+    $$
+
+SELECT ufn_is_word_comprised_2   ('0eo9fdid2ga','Sofia');
+
+DELIMITER ;
+;
+
+--      8
+
+DELIMITER $$
+
+CREATE PROCEDURE usp_get_holders_full_name ()
+BEGIN
+    SELECT CONCAT_WS(' ',first_name, last_name) AS 'full_name' FROM account_holders
+    ORDER BY full_name ASC , id ASC ;
+END
+$$
+
+CALL usp_get_holders_full_name();
+
+DELIMITER ;
+;
+
+--      9
+
+DELIMITER $$
+DROP PROCEDURE usp_get_holders_with_balance_higher_than ;
+
+CREATE PROCEDURE usp_get_holders_with_balance_higher_than(num DECIMAL(19, 4))
+BEGIN
+
+    SELECT first_name,	last_name FROM account_holders AS ac
+    JOIN accounts AS a ON ac.id = a.account_holder_id
+    GROUP BY ac.id
+    HAVING  SUM(a.balance) > num
+    ORDER BY ac.id ASC;
+
+END
+$$
+
+CALL usp_get_holders_with_balance_higher_than(7000);
+
+DELIMITER ;
+;
+
+SELECT * from  accounts;
+SELECT * from  account_holders;
 
 
 
