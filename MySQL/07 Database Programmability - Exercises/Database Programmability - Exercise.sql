@@ -215,12 +215,107 @@ DELIMITER ;
 SELECT * from  accounts;
 SELECT * from  account_holders;
 
+--      10
 
+DELIMITER $$
+DROP FUNCTION ufn_calculate_future_value ;
 
+CREATE FUNCTION ufn_calculate_future_value  (sum DECIMAL(19, 4), interest_rate DOUBLE, term INT)
+    RETURNS DECIMAL(19, 4)
+    DETERMINISTIC
+BEGIN
+    DECLARE FV DECIMAL(19, 4);
+    SET FV := (sum * POW((1 + interest_rate), term)
+);
+    RETURN FV;
+END
+$$
 
+SELECT ufn_calculate_future_value    (1000, 0.5, 5);
 
+DELIMITER ;
+;
 
+--      11
 
+DELIMITER $$
+DROP PROCEDURE usp_calculate_future_value_for_account ;
+
+CREATE PROCEDURE usp_calculate_future_value_for_account(account_id INT, interest_rate DOUBLE)
+BEGIN
+    SELECT a.id AS 'account_id', ac.first_name, ac.last_name,
+           a.balance AS current_balance,    # преизползваме функцията от задача 10 ↓
+           ufn_calculate_future_value( a.balance, interest_rate, 5) AS balance_in_5_years
+    FROM account_holders AS ac
+
+    JOIN accounts AS a ON ac.id = a.account_holder_id
+    GROUP BY ac.id
+    HAVING  SUM(a.balance)
+
+    #   AND (SELECT ufn_calculate_future_value (a.balance, interest_rate, 5))
+    ORDER BY ac.id;
+END
+$$
+
+CALL usp_calculate_future_value_for_account(1, 0.1);
+DELIMITER ;
+;
+
+SELECT * from  accounts;
+SELECT * from  account_holders;
+
+--      12
+
+DELIMITER $$
+DROP PROCEDURE usp_deposit_money;
+
+CREATE PROCEDURE usp_deposit_money(account_id INT, money_amount DECIMAL(19, 4))
+BEGIN
+    IF money_amount > 0 THEN START TRANSACTION ;
+
+        UPDATE accounts AS a
+            SET balance = balance + money_amount
+            WHERE id = account_id;
+
+        IF (SELECT balance FROM accounts WHERE id = account_id) < 0 THEN ROLLBACK;
+
+            ELSE COMMIT;
+
+        END IF;
+    END IF;
+END
+$$
+        CALL usp_deposit_money(1, 10.0);
+
+DELIMITER ;
+;
+
+--      13
+
+DELIMITER $$
+DROP PROCEDURE usp_withdraw_money ;
+
+CREATE PROCEDURE usp_withdraw_money(account_id INT, money_amount DECIMAL(19, 4))
+BEGIN
+    IF money_amount > 0 THEN START TRANSACTION ;
+
+    UPDATE accounts AS a
+    SET balance = balance - money_amount
+    WHERE id = account_id;
+
+    IF (SELECT balance FROM accounts WHERE id = account_id) < 0 THEN ROLLBACK;
+
+    ELSE COMMIT;
+
+    END IF;
+    END IF;
+END
+$$
+
+CALL usp_withdraw_money(1, 10);
+
+DELIMITER ;
+;
 
 
 
