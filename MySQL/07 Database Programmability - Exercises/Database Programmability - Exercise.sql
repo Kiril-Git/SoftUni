@@ -317,5 +317,118 @@ CALL usp_withdraw_money(1, 10);
 DELIMITER ;
 ;
 
+--      14
+
+DELIMITER $$
+DROP PROCEDURE usp_transfer_money ;
+
+CREATE PROCEDURE usp_transfer_money(from_account_id INT, to_account_id INT, amount DECIMAL(19, 4))
+BEGIN
+    IF amount > 0
+           AND
+       (SELECT balance FROM accounts WHERE id = from_account_id) >= to_account_id
+        AND
+       (SELECT id FROM accounts WHERE id = from_account_id) IS NOT NULL
+        AND
+       (SELECT id FROM accounts WHERE id = to_account_id) IS NOT NULL
+    THEN START TRANSACTION  ;
+
+    UPDATE accounts AS a
+    SET balance = balance - amount
+    WHERE id = from_account_id;
+
+    UPDATE accounts AS a
+    SET balance = balance + amount
+    WHERE id = to_account_id;
+
+    IF (SELECT balance FROM accounts WHERE id = from_account_id) < 0 THEN ROLLBACK;
+
+    ELSE COMMIT;
+
+    END IF;
+    END IF;
+END
+$$
+
+CALL usp_transfer_money(1, 2, 10);
+
+DELIMITER ;
+;
+
+--      15
+
+DROP TABLE logs;
+
+CREATE  TABLE logs(
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    account_id INT NOT NULL ,
+    old_sum DECIMAL(19, 4),
+    new_sum Decimal(19, 4),
+
+    FOREIGN KEY (account_id) references accounts(id) ON DELETE CASCADE
+);
+
+DROP TRIGGER tr_balance_update;
+
+CREATE TRIGGER tr_balance_update
+    AFTER UPDATE ON accounts
+    FOR EACH ROW
+    BEGIN
+        IF OLD.balance <> NEW.balance THEN
+            INSERT INTO logs(account_id, old_sum, new_sum)
+                VALUES (OLD.id, OLD.balance, NEW.balance);
+        END IF;
+    END;
+
+SELECT * FROM logs;
+SELECT  * FROM notification_emails;
+
+--      16
+
+CREATE TABLE notification_emails(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    recipient INT,
+    subject TEXT,
+    body TEXT
+    );
+
+CREATE TRIGGER tr_email_notification
+    AFTER INSERT ON logs                    --      Преизползваме от задача 15
+    FOR EACH ROW
+    BEGIN
+        INSERT INTO notification_emails ( recipient, subject, body)
+            VALUES (NEW.account_id,
+                    CONCAT_WS(' ','Balance change for account:', NEW.account_id),
+                    CONCAT_WS(' ','On', DATE_FORMAT(NOW(), '%b %d %Y at %r'), 'your balance was changed from',
+                        ROUND(NEW.old_sum, 2), 'to', ROUND(NEW.new_sum, 2),'.')
+                   );
+    END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
