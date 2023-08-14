@@ -12,17 +12,15 @@ public class O3_ContainsEmployee {
 
         entityManager.getTransaction().begin();
 
-        try {
-            entityManager.
-                    createQuery("FROM Employee WHERE CONCAT_WS(' ', firstName, lastName) = :fullName", Employee.class).
-                    setParameter("fullName", fullName).getSingleResult();
+        final String isEmployeePresented = entityManager.
+                createQuery("FROM Employee WHERE CONCAT_WS(' ', firstName, lastName) = :fullName", Employee.class).
+                setParameter("fullName", fullName)
+                .getResultList()
+                .isEmpty() ? "No" : "Yes";
 
-            entityManager.getTransaction().commit();
-            System.out.println("Yes");
+        entityManager.getTransaction().commit();
 
-        }catch (Exception e){
-            System.out.println("No");
-        }
+        System.out.println(isEmployeePresented);
     }
 
 }
