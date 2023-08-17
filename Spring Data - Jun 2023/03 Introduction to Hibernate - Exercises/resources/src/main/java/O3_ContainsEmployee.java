@@ -22,5 +22,4 @@ public class O3_ContainsEmployee {
 
         System.out.println(isEmployeePresented);
     }
-
 }

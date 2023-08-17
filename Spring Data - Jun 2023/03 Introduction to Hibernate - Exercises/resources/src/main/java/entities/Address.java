@@ -49,4 +49,10 @@ public class Address {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
+
+    public void printGeneralInfo(){
+
+        System.out.printf("%s %s %d\n", this.text, this.town.getName(), this.employees.size());
+
+    }
 }

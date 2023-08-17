@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "employees")
@@ -134,4 +135,34 @@ public class Employee {
              this.firstName, this.lastName, this.department.getName(), this.salary));
     }
 
+    public void printEmplWithProjects(){
+        System.out.printf("%s %s - %s\n%s",
+                this.firstName,
+                this.lastName,
+                this.jobTitle,
+                projects.stream()
+                        .map(Project::getName)
+                        .sorted()
+                        .collect(Collectors.joining(System.lineSeparator())));
+    }
+
+    public void printIncreasedSalary(){
+        System.out.printf("%s %s ($%s)\n",
+                this.firstName, this.lastName, this.salary);
+    }
+
+    public void printDepMaxSalary(){
+        System.out.printf("%s %s\n",
+                this.department.getName(), this.salary);
+    }
+
+    public void printNameByPattern() {
+        System.out.printf("%s %s - %s - ($%s)\n",
+                this.firstName,
+                this.lastName,
+                this.jobTitle,
+                this.salary);
+    }
 }
+
+//    Roberto Tamburello ($48496.00)
