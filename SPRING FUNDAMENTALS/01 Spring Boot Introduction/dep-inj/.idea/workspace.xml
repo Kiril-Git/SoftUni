@@ -18,13 +18,13 @@
       <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/config/AppConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/model/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/repository/FileBasedUserRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/repository/InMemoryUserRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/repository/UserRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/service/UserService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/softuni/service/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +113,10 @@
       <workItem from="1695454401745" duration="622000" />
       <workItem from="1695497118334" duration="4841000" />
       <workItem from="1696143605951" duration="1756000" />
+      <workItem from="1697700117031" duration="351000" />
+      <workItem from="1697963134047" duration="5376000" />
+      <workItem from="1698567281075" duration="386000" />
+      <workItem from="1698568008018" duration="2743000" />
     </task>
     <servers />
   </component>
